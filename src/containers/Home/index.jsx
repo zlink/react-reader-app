@@ -1,6 +1,14 @@
-import React from "react";
-import { HomeWrapper } from "./style";
+import React from 'react';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import { HomeWrapper } from './style';
 
-const Home = () => <HomeWrapper>Home Page.</HomeWrapper>;
+const Home = () => (
+  <>
+    <Header />
+    <HomeWrapper>Home</HomeWrapper>
+    <Footer />
+  </>
+);
 
 export default Home;

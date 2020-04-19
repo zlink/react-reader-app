@@ -1,20 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import * as serviceWorker from "./serviceWorker";
-import "./utils/flexible";
-import "./index.scss";
-import Home from './containers/Home';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import * as serviceWorker from './serviceWorker';
+import './utils/flexible';
+import './index.scss';
+import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
-    </Router>
+    <App />
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root'),
 );
 
 serviceWorker.unregister();
