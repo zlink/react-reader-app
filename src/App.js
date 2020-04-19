@@ -1,14 +1,10 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
 
 const App = () => (
-  <div className="App">
-    <header className="App-header">
-      <span>躁动不安的座上客，自以为是的表演着丶</span>
-      <span>躁动不安的座上客，自以为是的表演着丶</span>
-      <span>躁动不安的座上客，自以为是的表演着丶</span>
-    </header>
-  </div>
+  <>
+    <Header />
+  </>
 );
 
 export default App;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
+import { HomeWrapper } from "./style";
 
-const Home = () => <div>Home Page</div>;
+const Home = () => <HomeWrapper>Home Page.</HomeWrapper>;
 
 export default Home;
