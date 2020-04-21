@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 import { ReaderWrapper } from './style';
-// import ReaderCtr from '../ReaderCtrl';
 import Epub from 'epubjs';
 
 const DOWNLOAD_URL = '/books/2018_Book_AgileProcessesInSoftwareEngine.epub';
@@ -49,7 +48,6 @@ const Reader = () => {
       <div className="book-wrapper">
         <div id="book"></div>
       </div>
-      {/* <ReaderCtr prevPage={prevPage} nextPage={nextPage} /> */}
     </ReaderWrapper>
   );
 };
