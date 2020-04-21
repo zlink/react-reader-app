@@ -34,19 +34,17 @@ const Reader = () => {
       const touched = e.changedTouches[0];
       const offsetX = touched.clientX - touchStartX;
       const time = e.timeStamp - touchStartTimestamp;
-      if (time < 500 && offsetX > 40) {
+      const screenWidth = parseFloat(containerWidth.current);
+
+      if ((time < 500 && offsetX > 40) || touched.clientX < screenWidth * 0.3) {
         rendition.current.prev();
-      } else if (time < 500 && offsetX < -40) {
+      } else if (
+        (time < 500 && offsetX < -40) ||
+        touched.clientX > screenWidth * 0.7
+      ) {
         rendition.current.next();
       } else {
-        const screenWidth = parseFloat(containerWidth.current);
-        if (touched.clientX < screenWidth * 0.3) {
-          rendition.current.prev();
-        } else if (touched.clientX > screenWidth * 0.7) {
-          rendition.current.next();
-        } else {
-          alert("menu");
-        }
+        alert("menu");
       }
       e.stopPropagation();
     });
