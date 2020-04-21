@@ -1,10 +1,6 @@
 import React from 'react';
 import { FooterWrapper } from './style';
 
-const Footer = () => (
-  <FooterWrapper>
-    <div className="footer-wrapper">footer wrapper</div>
-  </FooterWrapper>
-);
+const Footer = () => <FooterWrapper></FooterWrapper>;
 
 export default Footer;
