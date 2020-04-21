@@ -1,16 +1,23 @@
-import React, { useEffect, useRef } from 'react';
-import { ReaderWrapper } from './style';
-import Epub from 'epubjs';
+import React, { useEffect, useRef } from "react";
+import { ReaderWrapper } from "./style";
+import Epub from "epubjs";
 
-const DOWNLOAD_URL = '/books/2018_Book_AgileProcessesInSoftwareEngine.epub';
+const DOWNLOAD_URL = "/books/2018_Book_AgileProcessesInSoftwareEngine.epub";
 
 const Reader = () => {
   const rendition = useRef();
 
+  const container = useRef();
+  const containerWidth = useRef();
+
+  useEffect(() => {
+    containerWidth.current = window.getComputedStyle(container.current).width;
+  }, []);
+
   useEffect(() => {
     let book = new Epub(DOWNLOAD_URL);
 
-    rendition.current = book.renderTo('book', {
+    rendition.current = book.renderTo("book", {
       width: window.innerWidth,
       height: window.innerHeight,
     });
@@ -18,22 +25,28 @@ const Reader = () => {
 
     let touchStartX = null;
     let touchStartTimestamp = null;
-    rendition.current.on('touchstart', (e) => {
+    rendition.current.on("touchstart", (e) => {
       touchStartX = e.changedTouches[0].clientX;
       touchStartTimestamp = e.timeStamp;
     });
 
-    rendition.current.on('touchend', (e) => {
-      const offsetX = e.changedTouches[0].clientX - touchStartX;
+    rendition.current.on("touchend", (e) => {
+      const touched = e.changedTouches[0];
+      const offsetX = touched.clientX - touchStartX;
       const time = e.timeStamp - touchStartTimestamp;
       if (time < 500 && offsetX > 40) {
         rendition.current.prev();
       } else if (time < 500 && offsetX < -40) {
         rendition.current.next();
       } else {
-        // 判断点击位置可以同时支持点击和滑动翻页
-        // showTitleAndMenu();
-        // alert('menu');
+        const screenWidth = parseFloat(containerWidth.current);
+        if (touched.clientX < screenWidth * 0.3) {
+          rendition.current.prev();
+        } else if (touched.clientX > screenWidth * 0.7) {
+          rendition.current.next();
+        } else {
+          alert("menu");
+        }
       }
       e.stopPropagation();
     });
@@ -46,7 +59,7 @@ const Reader = () => {
   return (
     <ReaderWrapper>
       <div className="book-wrapper">
-        <div id="book"></div>
+        <div ref={container} id="book"></div>
       </div>
     </ReaderWrapper>
   );
