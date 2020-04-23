@@ -25,7 +25,4 @@ const Header = memo((props) => {
   );
 });
 
-// const mapStateToProps = () => {};
-// const mapStateToProps = () => {};
-
-export default connect()(Header);
+export default Header;
