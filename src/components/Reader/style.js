@@ -1,3 +1,5 @@
 import styled from 'styled-components';
 
-export const ReaderWrapper = styled.div``;
+export const ReaderWrapper = styled.div`
+  position: relative;
+`;

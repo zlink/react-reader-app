@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { r } from '../../utils/helper';
 
 export const FooterWrapper = styled.div`
   position: absolute;
@@ -10,4 +11,16 @@ export const FooterWrapper = styled.div`
   display: flex;
   box-shadow: 0 -0.2162rem 0.2162rem rgba(0, 0, 0, 0.15);
   background-color: #fff;
+  .icon-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon-progress {
+      font-size: ${r(28)};
+    }
+    .icon-bright {
+      font-size: ${r(22)};
+    }
+  }
 `;

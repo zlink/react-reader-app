@@ -4,23 +4,31 @@ import { r } from '../../utils/helper';
 export const HeaderWrapper = styled.div`
   position: absolute;
   width: 100vw;
-  height: 1.2973rem;
+  height: ${r(48)};
   top: 0;
   left: 0;
   z-index: 101;
   background-color: #ffffff;
-  display: flex;
   box-shadow: 0 ${r(8)} ${r(8)} rgba(0, 0, 0, 0.15);
+  display: flex;
   align-items: center;
   .left {
-    flex: 0 0 ${r(100)};
+    flex: 0 0 ${r(60)};
+    display: flex;
+    justify-content: center;
   }
   .right {
     flex: 1;
+    display: flex;
     justify-content: flex-end;
     .icon-wrapper {
-      display: inline-block;
-      flex: 0 0 ${r(100)};
+      flex: 0 0 ${r(40)};
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .icon-cart {
+        font-size: ${r(22)};
+      }
     }
   }
 `;
