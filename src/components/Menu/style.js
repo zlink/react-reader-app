@@ -6,7 +6,7 @@ export const FooterWrapper = styled.div`
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 1.2973rem;
+  height: ${r(42)};
   z-index: 101;
   display: flex;
   box-shadow: 0 -0.2162rem 0.2162rem rgba(0, 0, 0, 0.15);

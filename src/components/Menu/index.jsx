@@ -13,7 +13,7 @@ const Footer = () => (
       <span className="icon icon-bright"></span>
     </div>
     <div className="icon-wrapper">
-      <span className="icon icon-share"></span>
+      <span className="icon icon-person"></span>
     </div>
   </FooterWrapper>
 );

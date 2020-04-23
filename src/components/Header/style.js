@@ -4,7 +4,7 @@ import { r } from '../../utils/helper';
 export const HeaderWrapper = styled.div`
   position: absolute;
   width: 100vw;
-  height: ${r(48)};
+  height: ${r(42)};
   top: 0;
   left: 0;
   z-index: 101;
@@ -16,6 +16,9 @@ export const HeaderWrapper = styled.div`
     flex: 0 0 ${r(60)};
     display: flex;
     justify-content: center;
+    .icon-back {
+      font-size: ${r(16)};
+    }
   }
   .right {
     flex: 1;
