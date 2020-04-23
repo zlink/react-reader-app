@@ -1,8 +1,8 @@
-import React, { useEffect, useRef } from "react";
-import { ReaderWrapper } from "./style";
-import Epub from "epubjs";
+import React, { useEffect, useRef } from 'react';
+import { ReaderWrapper } from './style';
+import Epub from 'epubjs';
 
-const DOWNLOAD_URL = "/books/2018_Book_AgileProcessesInSoftwareEngine.epub";
+const DOWNLOAD_URL = '/books/2018_Book_AgileProcessesInSoftwareEngine.epub';
 
 const Reader = () => {
   const rendition = useRef();
@@ -17,7 +17,7 @@ const Reader = () => {
   useEffect(() => {
     let book = new Epub(DOWNLOAD_URL);
 
-    rendition.current = book.renderTo("book", {
+    rendition.current = book.renderTo('book', {
       width: window.innerWidth,
       height: window.innerHeight,
     });
@@ -25,29 +25,35 @@ const Reader = () => {
 
     let touchStartX = null;
     let touchStartTimestamp = null;
-    rendition.current.on("touchstart", (e) => {
+    rendition.current.on('touchstart', (e) => {
       touchStartX = e.changedTouches[0].clientX;
       touchStartTimestamp = e.timeStamp;
     });
 
-    rendition.current.on("touchend", (e) => {
+    rendition.current.on('touchend', (e) => {
       const touched = e.changedTouches[0];
       const offsetX = touched.clientX - touchStartX;
       const time = e.timeStamp - touchStartTimestamp;
-      const screenWidth = parseFloat(containerWidth.current);
-
-      if ((time < 500 && offsetX > 40) || touched.clientX < screenWidth * 0.3) {
+      if (time < 500 && offsetX > 40) {
         rendition.current.prev();
-      } else if (
-        (time < 500 && offsetX < -40) ||
-        touched.clientX > screenWidth * 0.7
-      ) {
+      } else if (time < 500 && offsetX < -40) {
         rendition.current.next();
-      } else {
-        alert("menu");
       }
       e.stopPropagation();
     });
+
+    // rendition.current.on('click', (e) => {
+    //   const screenWidth = parseFloat(containerWidth.current);
+    //   if (e.clientX < screenWidth * 0.3) {
+    //     rendition.current.prev();
+    //   } else if (e.clientX > screenWidth * 0.7) {
+    //     rendition.current.next();
+    //   } else {
+    //     alert('menu');
+    //   }
+    //   e.stopPropagation();
+    // });
+
     return () => {
       book = null;
       rendition.current = null;

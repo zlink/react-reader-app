@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { r } from '../../utils/helper';
 
 export const HeaderWrapper = styled.div`
   position: absolute;
@@ -9,16 +10,17 @@ export const HeaderWrapper = styled.div`
   z-index: 101;
   background-color: #ffffff;
   display: flex;
-  box-shadow: 0 0.2162rem 0.2162rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 ${r(8)} ${r(8)} rgba(0, 0, 0, 0.15);
+  align-items: center;
   .left {
-    flex: 0 0 1.6216rem;
+    flex: 0 0 ${r(100)};
   }
   .right {
     flex: 1;
     justify-content: flex-end;
     .icon-wrapper {
       display: inline-block;
-      flex: 0 0 1.0811rem;
+      flex: 0 0 ${r(100)};
     }
   }
 `;
