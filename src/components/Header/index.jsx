@@ -1,9 +1,9 @@
-import React, { useCallback, memo } from "react";
-import { connect } from "react-redux";
-import { HeaderWrapper } from "./style";
+import React, { useCallback, memo } from 'react';
+import { connect } from 'react-redux';
+import { HeaderWrapper } from './style';
 
 const Header = memo((props) => {
-  const onClick = useCallback(() => console.log("e"), []);
+  const onClick = useCallback(() => console.log('e'), []);
   return (
     <HeaderWrapper>
       <div className="left" onClick={() => onClick()}>
