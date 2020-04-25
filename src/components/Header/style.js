@@ -13,7 +13,7 @@ export const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   .left {
-    flex: 0 0 ${r(60)};
+    flex: 0 0 ${r(40)};
     display: flex;
     justify-content: center;
     .icon-back {

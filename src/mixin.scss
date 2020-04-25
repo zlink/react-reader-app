@@ -1,2 +1,54 @@
 @import '~normalize.css';
 @import './assets/icons.css';
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #f4f4f4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.slide-down-enter,
+.slide-down-exit-done {
+  transform: translate3d(0, -100%, 0);
+}
+
+.slide-down-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s linear;
+}
+
+.slide-down-enter-done,
+.slide-down-exit,
+.slide-up-enter-done,
+.slide-up-exit {
+  transform: translate3d(0, 0, 0);
+}
+
+.slide-down-exit-active {
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.3s linear;
+}
+
+.slide-up-enter,
+.slide-up-exit-done {
+  transform: translate3d(0, 100%, 0);
+}
+
+.slide-up-enter-active {
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s linear;
+}
+
+.slide-up-exit-active {
+  transform: translate3d(0, 100%, 0);
+  transition: all 0.3s linear;
+}
