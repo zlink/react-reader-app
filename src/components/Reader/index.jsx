@@ -6,11 +6,11 @@ const DOWNLOAD_URL =
   '/books/Ding Tou Shi Nian Cai Wu Zi You - Yin Xing Luo Si Ding.epub';
 
 const Reader = (props) => {
-  const { toggle } = props;
   const rendition = useRef();
 
   const container = useRef();
   const containerWidth = useRef();
+  const { toggle } = props;
 
   useEffect(() => {
     containerWidth.current = window.getComputedStyle(container.current).width;
@@ -65,7 +65,7 @@ const Reader = (props) => {
   }, [toggle]);
 
   return (
-    <ReaderWrapper>
+    <ReaderWrapper onClick={() => toggle()}>
       <div className="book-wrapper">
         <div ref={container} id="book"></div>
       </div>

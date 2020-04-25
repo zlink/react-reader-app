@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { createGlobalStyle } from 'styled-components'
 import { r } from './utils/helper'
 
@@ -17,10 +18,20 @@ code {
     monospace;
 }
 
+=======
+import { createGlobalStyle } from 'styled-components';
+import { r } from './utils/helper';
+
+const globalStyle = createGlobalStyle`
+>>>>>>> dev
 .icon {
   color: #333333;
   font-size: ${r(20)};
 }
 `;
 
+<<<<<<< HEAD
 export default globalStyle;
+=======
+export default globalStyle;
+>>>>>>> dev

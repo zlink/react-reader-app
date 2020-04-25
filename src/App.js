@@ -1,6 +1,9 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import './utils/flexible';
+import './mixin.scss';
+import './globalStyle';
 import store from './store';
 import Home from './containers/Home';
 import Me from './containers/Me';
