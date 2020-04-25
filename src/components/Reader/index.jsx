@@ -4,11 +4,12 @@ import Epub from 'epubjs';
 
 const DOWNLOAD_URL = '/books/2018_Book_AgileProcessesInSoftwareEngine.epub';
 
-const Reader = () => {
+const Reader = (props) => {
   const rendition = useRef();
 
   const container = useRef();
   const containerWidth = useRef();
+  const { toggle } = props;
 
   useEffect(() => {
     containerWidth.current = window.getComputedStyle(container.current).width;
@@ -38,6 +39,8 @@ const Reader = () => {
         rendition.current.prev();
       } else if (time < 500 && offsetX < -40) {
         rendition.current.next();
+      } else {
+        toggle();
       }
       e.stopPropagation();
     });
@@ -58,10 +61,10 @@ const Reader = () => {
       book = null;
       rendition.current = null;
     };
-  }, []);
+  }, [toggle]);
 
   return (
-    <ReaderWrapper>
+    <ReaderWrapper onClick={() => toggle()}>
       <div className="book-wrapper">
         <div ref={container} id="book"></div>
       </div>

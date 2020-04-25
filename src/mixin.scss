@@ -1,0 +1,32 @@
+@import '~normalize.css';
+@import './assets/icons.css';
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #f4f4f4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.side-down-enter,
+.side-down-exit-done {
+  transform: translate3d(0, -100%, 0);
+}
+
+.side-down-enter-done,
+.side-down-eit {
+  transform: translate3d(0, 0, 0);
+}
+
+.side-down-enter-active,
+.side-down-exit-active {
+  transition: all 0.3s linear;
+}
