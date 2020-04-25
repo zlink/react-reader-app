@@ -2,9 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { ReaderWrapper } from './style';
 import Epub from 'epubjs';
 
-const DOWNLOAD_URL = '/books/2018_Book_AgileProcessesInSoftwareEngine.epub';
+const DOWNLOAD_URL =
+  '/books/Ding Tou Shi Nian Cai Wu Zi You - Yin Xing Luo Si Ding.epub';
 
-const Reader = () => {
+const Reader = (props) => {
+  const { toggle } = props;
   const rendition = useRef();
 
   const container = useRef();
@@ -38,6 +40,8 @@ const Reader = () => {
         rendition.current.prev();
       } else if (time < 500 && offsetX < -40) {
         rendition.current.next();
+      } else {
+        toggle();
       }
       e.stopPropagation();
     });
@@ -58,7 +62,7 @@ const Reader = () => {
       book = null;
       rendition.current = null;
     };
-  }, []);
+  }, [toggle]);
 
   return (
     <ReaderWrapper>

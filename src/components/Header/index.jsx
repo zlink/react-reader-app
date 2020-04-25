@@ -1,12 +1,11 @@
-import React, { useCallback, memo } from 'react';
-import { connect } from 'react-redux';
+import React, { memo } from 'react';
 import { HeaderWrapper } from './style';
 
 const Header = memo((props) => {
-  const onClick = useCallback(() => console.log('e'), []);
-  return (
+  const { show } = props;
+  return show ? (
     <HeaderWrapper>
-      <div className="left" onClick={() => onClick()}>
+      <div className="left">
         <span className="icon icon-back" />
       </div>
       <div className="right">
@@ -21,7 +20,7 @@ const Header = memo((props) => {
         </div>
       </div>
     </HeaderWrapper>
-  );
+  ) : null;
 });
 
-export default connect()(Header);
+export default Header;
