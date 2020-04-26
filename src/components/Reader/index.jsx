@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../containers/Home/store/actionCreators';
 import { ReaderWrapper } from './style';
 import Epub from 'epubjs';
+import { connect } from 'react-redux';
 
 const DOWNLOAD_URL =
   '/books/Ding Tou Shi Nian Cai Wu Zi You - Yin Xing Luo Si Ding.epub';
@@ -10,7 +13,11 @@ const Reader = (props) => {
 
   const container = useRef();
   const containerWidth = useRef();
-  const { toggle } = props;
+  const {
+    actions: { toggleMenuVisible },
+  } = props;
+
+  const toggle = useCallback(() => toggleMenuVisible(), []);
 
   useEffect(() => {
     containerWidth.current = window.getComputedStyle(container.current).width;
@@ -46,18 +53,6 @@ const Reader = (props) => {
       e.stopPropagation();
     });
 
-    // rendition.current.on('click', (e) => {
-    //   const screenWidth = parseFloat(containerWidth.current);
-    //   if (e.clientX < screenWidth * 0.3) {
-    //     rendition.current.prev();
-    //   } else if (e.clientX > screenWidth * 0.7) {
-    //     rendition.current.next();
-    //   } else {
-    //     alert('menu');
-    //   }
-    //   e.stopPropagation();
-    // });
-
     return () => {
       book = null;
       rendition.current = null;
@@ -73,4 +68,12 @@ const Reader = (props) => {
   );
 };
 
-export default Reader;
+const mapStateToProps = (state) => state.Home;
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(actions, dispatch),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Reader);

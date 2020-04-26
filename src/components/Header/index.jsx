@@ -1,11 +1,13 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { HeaderWrapper } from './style';
+import { connect } from 'react-redux';
 
-const Header = memo((props) => {
-  const { show } = props;
+const Header = (props) => {
+  const { menuVisible } = props;
+
   return (
-    <CSSTransition in={show} timeout={5000} classNames="slide-down">
+    <CSSTransition in={menuVisible} timeout={300} classNames="slide-down">
       <HeaderWrapper>
         <div className="left">
           <span className="icon icon-back" />
@@ -24,6 +26,8 @@ const Header = memo((props) => {
       </HeaderWrapper>
     </CSSTransition>
   );
-});
+};
 
-export default memo(Header);
+const mapStateToProps = (state) => state.Home;
+
+export default connect(mapStateToProps, null)(Header);
