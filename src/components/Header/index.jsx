@@ -14,7 +14,7 @@ const Header = (props) => {
         </div>
         <div className="right">
           <div className="icon-wrapper">
-            <span className="icon icon-cart" />
+            <span className="icon icon-shelf" />
           </div>
           <div className="icon-wrapper">
             <span className="icon icon-person" />

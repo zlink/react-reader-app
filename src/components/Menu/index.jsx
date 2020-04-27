@@ -19,7 +19,7 @@ const Footer = (props) => {
           <span className="icon icon-bright"></span>
         </div>
         <div className="icon-wrapper">
-          <span className="icon icon-person"></span>
+          <span className="icon icon-A"></span>
         </div>
       </FooterWrapper>
     </CSSTransition>
