@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { r } from '../../utils/helper';
 
+export const PageWrapper = styled.div`
+`;
+
 export const MenuWrapper = styled.div`
   position: absolute;
   bottom: 0;
@@ -28,12 +31,13 @@ export const IconWrapper = styled.div`
 
 export const SettingWrapper = styled.div`
   position: absolute;
-  bottom: ${r(42)};
+  bottom: 0;
   left: 0;
-  height: ${r(60)};
+  height: ${r(102)};
   width: 100vw;
   background-color: #fff;
   box-shadow: 0 ${r(-8)} ${r(8)} rgba(0, 0, 0, 0.15);
+  z-index: 100;
 `;
 
 export const SettingFontSize = styled.div``;

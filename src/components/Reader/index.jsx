@@ -1,28 +1,26 @@
 import React, { useEffect, useRef, useCallback, memo } from 'react';
-import { bindActionCreators } from 'redux';
-import * as actions from '../../containers/Ebook/store/actionCreators';
+import {
+  toggleMenuVisible,
+  setSettingVisible,
+} from '../../containers/Ebook/store/actionCreators';
 import { ReaderWrapper } from './style';
 import Epub from 'epubjs';
 import { connect } from 'react-redux';
 
 const Reader = (props) => {
-  const {
-    book,
-    settingVisible,
-    actions: { toggleMenuVisible, setSettingVisible },
-  } = props;
-
-  console.log(props);
+  const { book, settingVisible, dispatch } = props;
 
   const rendition = useRef();
 
-  const toggle = useCallback(() => {
-    toggleMenuVisible();
-    console.log(settingVisible);
+  const toggleMenuAndSettingVisible = useCallback(() => {
+    dispatch(toggleMenuVisible());
+    dispatch(setSettingVisible(-1));
+
+    console.log(settingVisible); // todo:: 这里为什么一直是-1呢
     if (settingVisible > -1) {
-      setSettingVisible(-1);
+      dispatch(setSettingVisible(-1));
     }
-  }, [toggleMenuVisible, settingVisible, setSettingVisible]);
+  }, [dispatch, settingVisible]);
 
   useEffect(() => {
     let render = new Epub(book);
@@ -49,7 +47,7 @@ const Reader = (props) => {
       } else if (time < 500 && offsetX < -40) {
         rendition.current.next();
       } else {
-        toggle();
+        toggleMenuAndSettingVisible();
       }
       e.stopPropagation();
     });
@@ -58,12 +56,12 @@ const Reader = (props) => {
       render = null;
       rendition.current = null;
     };
-  }, [toggle, book]);
+  }, [toggleMenuAndSettingVisible, book]);
 
   return (
-    <ReaderWrapper onClick={() => toggle()}>
+    <ReaderWrapper onClick={() => toggleMenuAndSettingVisible()}>
       <div className="book-wrapper">
-        <div id="book"></div>
+        <div id="book" />
       </div>
     </ReaderWrapper>
   );
@@ -71,10 +69,6 @@ const Reader = (props) => {
 
 const mapStateToProps = (state) => state.Ebook;
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    actions: bindActionCreators(actions, dispatch),
-  };
-};
+const mapDispatchToProps = (dispatch) => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(Reader));

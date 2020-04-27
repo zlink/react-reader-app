@@ -1,41 +1,45 @@
 import React, { memo, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import classnames from 'classnames';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import {
+  PageWrapper,
   MenuWrapper,
   IconWrapper,
   SettingWrapper,
   SettingFontSize,
 } from './style';
-import * as actionCreators from '../../containers/Ebook/store/actionCreators';
+import { setSettingVisible } from '../../containers/Ebook/store/actionCreators';
 
 const Menu = (props) => {
-  const {
-    menuVisible,
-    settingVisible,
-    actions: { setSettingVisible },
-  } = props;
+  const { menuVisible, settingVisible, dispatch } = props;
 
-  const toggleSettingVisible = useCallback((item) => setSettingVisible(item), [
-    setSettingVisible,
-  ]);
+  const toggleSettingVisible = useCallback(
+    (item) => {
+      dispatch(setSettingVisible(item));
+    },
+    [dispatch],
+  );
 
   return (
-    <>
+    <PageWrapper>
       <CSSTransition in={menuVisible} timeout={300} classNames="slide-up">
-        <MenuWrapper className="slide-up-enter">
-          <IconWrapper>
-            <span className="icon icon-menu"></span>
+        <MenuWrapper
+          className={classnames({
+            'clear-shadow': settingVisible > -1,
+          }, 'slide-up-enter')}
+        >
+          <IconWrapper onClick={() => toggleSettingVisible(1)}>
+            <span className="icon icon-menu" />
           </IconWrapper>
-          <IconWrapper>
-            <span className="icon icon-progress"></span>
+          <IconWrapper onClick={() => toggleSettingVisible(2)}>
+            <span className="icon icon-progress" />
           </IconWrapper>
-          <IconWrapper>
-            <span className="icon icon-bright"></span>
+          <IconWrapper onClick={() => toggleSettingVisible(3)}>
+            <span className="icon icon-bright" />
           </IconWrapper>
           <IconWrapper onClick={() => toggleSettingVisible(0)}>
-            <span className="icon icon-A"></span>
+            <span className="icon icon-A" />
           </IconWrapper>
         </MenuWrapper>
       </CSSTransition>
@@ -45,17 +49,15 @@ const Menu = (props) => {
         classNames="slide-up"
       >
         <SettingWrapper className="slide-up-enter">
-          <SettingFontSize></SettingFontSize>
+          <SettingFontSize>Font Size Setting</SettingFontSize>
         </SettingWrapper>
       </CSSTransition>
-    </>
+    </PageWrapper>
   );
 };
 
 const mapStateToProps = (state) => state.Ebook;
 
-const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(actionCreators, dispatch),
-});
+const mapDispatchToProps = (dispatch) => ({ dispatch });
 
 export default connect(mapStateToProps, mapDispatchToProps)(memo(Menu));

@@ -4,15 +4,12 @@ import Reader from '../../components/Reader';
 import { HomeWrapper } from './style';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
-import { connect } from 'react-redux';
 
 const Home = (props) => {
-  const { history } = props;
-
   const book =
     '/books/Ding Tou Shi Nian Cai Wu Zi You - Yin Xing Luo Si Ding.epub';
 
-  const onBack = useCallback(() => history.goBack(), [history]);
+  const onBack = useCallback(() => window.history.back(), []);
 
   return (
     <HomeWrapper>
@@ -23,4 +20,4 @@ const Home = (props) => {
   );
 };
 
-export default connect(null, null)(withRouter(Home));
+export default withRouter(Home);
