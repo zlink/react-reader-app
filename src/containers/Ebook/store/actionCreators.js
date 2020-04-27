@@ -10,12 +10,13 @@ export function setFileName(playload) {
 export function toggleMenuVisible() {
   return (dispatch, getState) => {
     const {
-      Ebook: { menuVisible },
+      Ebook: { menuVisible, settingVisible },
     } = getState();
     dispatch({
       type: MENU_VISIBLE,
       playload: !menuVisible,
     });
+    settingVisible > -1 && dispatch(setSettingVisible(-1));
   };
 }
 

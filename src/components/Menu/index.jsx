@@ -24,11 +24,7 @@ const Menu = (props) => {
   return (
     <PageWrapper>
       <CSSTransition in={menuVisible} timeout={300} classNames="slide-up">
-        <MenuWrapper
-          className={classnames({
-            'clear-shadow': settingVisible > -1,
-          }, 'slide-up-enter')}
-        >
+        <MenuWrapper className="slide-up-enter">
           <IconWrapper onClick={() => toggleSettingVisible(1)}>
             <span className="icon icon-menu" />
           </IconWrapper>

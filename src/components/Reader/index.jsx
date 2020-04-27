@@ -1,26 +1,17 @@
-import React, { useEffect, useRef, useCallback, memo } from 'react';
-import {
-  toggleMenuVisible,
-  setSettingVisible,
-} from '../../containers/Ebook/store/actionCreators';
+import React, { useEffect, useRef, useCallback } from 'react';
+import { toggleMenuVisible } from '../../containers/Ebook/store/actionCreators';
 import { ReaderWrapper } from './style';
 import Epub from 'epubjs';
 import { connect } from 'react-redux';
 
 const Reader = (props) => {
-  const { book, settingVisible, dispatch } = props;
+  const { book, dispatch } = props;
 
   const rendition = useRef();
 
   const toggleMenuAndSettingVisible = useCallback(() => {
     dispatch(toggleMenuVisible());
-    dispatch(setSettingVisible(-1));
-
-    console.log(settingVisible); // todo:: 这里为什么一直是-1呢
-    if (settingVisible > -1) {
-      dispatch(setSettingVisible(-1));
-    }
-  }, [dispatch, settingVisible]);
+  }, [dispatch]);
 
   useEffect(() => {
     let render = new Epub(book);
@@ -71,4 +62,4 @@ const mapStateToProps = (state) => state.Ebook;
 
 const mapDispatchToProps = (dispatch) => ({ dispatch });
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(Reader));
+export default connect(mapStateToProps, mapDispatchToProps)(Reader);
