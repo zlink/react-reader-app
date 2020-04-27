@@ -5,14 +5,14 @@ import './utils/flexible';
 import './mixin.scss';
 import './globalStyle';
 import store from './store';
-import Home from './containers/Home';
+import Ebook from './containers/Ebook';
 import Me from './containers/Me';
 
 const App = () => (
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={Ebook} />
         <Route path="/me" component={Me} />
       </Switch>
     </Router>

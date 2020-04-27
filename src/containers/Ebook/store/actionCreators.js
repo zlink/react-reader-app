@@ -1,4 +1,4 @@
-import { SET_FILENAME, MENU_VISIBLE } from './actionTypes';
+import { SET_FILENAME, MENU_VISIBLE, SETTING_VISIBLE } from './actionTypes';
 
 export function setFileName(playload) {
   return {
@@ -15,6 +15,18 @@ export function toggleMenuVisible() {
     dispatch({
       type: MENU_VISIBLE,
       playload: !menuVisible,
+    });
+  };
+}
+
+export function toggleSettingVisible() {
+  return (dispatch, getState) => {
+    const {
+      Home: { settingVisible },
+    } = getState();
+    dispatch({
+      type: SETTING_VISIBLE,
+      playload: !settingVisible,
     });
   };
 }

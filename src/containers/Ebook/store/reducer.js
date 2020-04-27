@@ -1,7 +1,9 @@
-import { SET_FILENAME, MENU_VISIBLE } from './actionTypes';
+import { SET_FILENAME, MENU_VISIBLE, SETTING_VISIBLE } from './actionTypes';
+import { stat } from 'fs-extra';
 
 const defaultState = {
   menuVisible: false,
+  settingVisible: -1, // -1 不显示, 0 字号设置, 1 主题设置, 2 进度条, 3 目录
   fileName: '',
 };
 
@@ -11,6 +13,8 @@ const reducer = (state = defaultState, action) => {
       return { ...state, fileName: action.playload };
     case MENU_VISIBLE:
       return { ...state, menuVisible: action.playload };
+    case SETTING_VISIBLE:
+      return { ...state, settingVisible: action.playload };
     default:
       return state;
   }

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
 export const ReaderWrapper = styled.div`
-  position: relative;
+  user-select: none;
 `;

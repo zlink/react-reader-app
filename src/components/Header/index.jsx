@@ -4,13 +4,13 @@ import { HeaderWrapper } from './style';
 import { connect } from 'react-redux';
 
 const Header = (props) => {
-  const { menuVisible } = props;
+  const { menuVisible, back } = props;
 
   return (
     <CSSTransition in={menuVisible} timeout={300} classNames="slide-down">
       <HeaderWrapper className="slide-down-enter">
         <div className="left">
-          <span className="icon icon-back" />
+          <span className="icon icon-back" onClick={() => back()} />
         </div>
         <div className="right">
           <div className="icon-wrapper">
