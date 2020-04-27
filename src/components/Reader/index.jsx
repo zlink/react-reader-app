@@ -5,22 +5,20 @@ import { ReaderWrapper } from './style';
 import Epub from 'epubjs';
 import { connect } from 'react-redux';
 
-const DOWNLOAD_URL =
-  '/books/Ding Tou Shi Nian Cai Wu Zi You - Yin Xing Luo Si Ding.epub';
-
 const Reader = (props) => {
-  const rendition = useRef();
-
   const {
+    book,
     actions: { toggleMenuVisible },
   } = props;
+
+  const rendition = useRef();
 
   const toggle = useCallback(() => toggleMenuVisible(), [toggleMenuVisible]);
 
   useEffect(() => {
-    let book = new Epub(DOWNLOAD_URL);
+    let render = new Epub(book);
 
-    rendition.current = book.renderTo('book', {
+    rendition.current = render.renderTo('book', {
       width: window.innerWidth,
       height: window.innerHeight,
     });
@@ -48,10 +46,10 @@ const Reader = (props) => {
     });
 
     return () => {
-      book = null;
+      render = null;
       rendition.current = null;
     };
-  }, [toggle]);
+  }, [toggle, book]);
 
   return (
     <ReaderWrapper onClick={() => toggle()}>

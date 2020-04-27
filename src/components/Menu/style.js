@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { r } from '../../utils/helper';
 
-export const FooterWrapper = styled.div`
+export const MenuWrapper = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;

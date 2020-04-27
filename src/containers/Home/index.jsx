@@ -1,19 +1,18 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 import Reader from '../../components/Reader';
 import { HomeWrapper } from './style';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
 
 const Home = () => {
-  const [show, setShow] = useState(false);
-
-  const toggle = useCallback(() => setShow((state) => !state), []);
+  const book =
+    '/books/Ding Tou Shi Nian Cai Wu Zi You - Yin Xing Luo Si Ding.epub';
 
   return (
     <HomeWrapper>
-      <Header show={show} />
-      <Reader toggle={toggle} />
-      <Menu show={show} />
+      <Header />
+      <Reader book={book} />
+      <Menu />
     </HomeWrapper>
   );
 };

@@ -1,15 +1,17 @@
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { FooterWrapper } from './style';
+import { MenuWrapper } from './style';
 import { connect } from 'react-redux';
 
-const Footer = (props) => {
+const Menu = (props) => {
   const { menuVisible } = props;
+
+  const handleClickIcon = useCallback((e) => console.log(e.target), []);
 
   return (
     <CSSTransition in={menuVisible} timeout={300} classNames="slide-up">
-      <FooterWrapper>
-        <div className="icon-wrapper">
+      <MenuWrapper className="slide-up-enter">
+        <div className="icon-wrapper" onClick={(e) => handleClickIcon(e)}>
           <span className="icon icon-menu"></span>
         </div>
         <div className="icon-wrapper">
@@ -21,11 +23,11 @@ const Footer = (props) => {
         <div className="icon-wrapper">
           <span className="icon icon-A"></span>
         </div>
-      </FooterWrapper>
+      </MenuWrapper>
     </CSSTransition>
   );
 };
 
 const mapStateToProps = (state) => state.Home;
 
-export default connect(mapStateToProps, null)(memo(Footer));
+export default connect(mapStateToProps, null)(memo(Menu));

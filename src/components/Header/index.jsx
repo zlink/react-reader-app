@@ -8,7 +8,7 @@ const Header = (props) => {
 
   return (
     <CSSTransition in={menuVisible} timeout={300} classNames="slide-down">
-      <HeaderWrapper>
+      <HeaderWrapper className="slide-down-enter">
         <div className="left">
           <span className="icon icon-back" />
         </div>
