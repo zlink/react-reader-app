@@ -7,9 +7,14 @@ export function setFileName(playload) {
   };
 }
 
-export function toggleMenuVisible(playload) {
-  return {
-    type: MENU_VISIBLE,
-    playload,
+export function toggleMenuVisible() {
+  return (dispatch, getState) => {
+    const {
+      Home: { menuVisible },
+    } = getState();
+    dispatch({
+      type: MENU_VISIBLE,
+      playload: !menuVisible,
+    });
   };
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, memo } from 'react';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../containers/Home/store/actionCreators';
 import { ReaderWrapper } from './style';
@@ -11,17 +11,11 @@ const DOWNLOAD_URL =
 const Reader = (props) => {
   const rendition = useRef();
 
-  const container = useRef();
-  const containerWidth = useRef();
   const {
     actions: { toggleMenuVisible },
   } = props;
 
-  const toggle = useCallback(() => toggleMenuVisible(), []);
-
-  useEffect(() => {
-    containerWidth.current = window.getComputedStyle(container.current).width;
-  }, []);
+  const toggle = useCallback(() => toggleMenuVisible(), [toggleMenuVisible]);
 
   useEffect(() => {
     let book = new Epub(DOWNLOAD_URL);
@@ -62,7 +56,7 @@ const Reader = (props) => {
   return (
     <ReaderWrapper onClick={() => toggle()}>
       <div className="book-wrapper">
-        <div ref={container} id="book"></div>
+        <div id="book"></div>
       </div>
     </ReaderWrapper>
   );
@@ -76,4 +70,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Reader);
+export default connect(mapStateToProps, mapDispatchToProps)(memo(Reader));
