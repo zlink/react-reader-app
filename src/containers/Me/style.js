@@ -13,6 +13,5 @@ export const PageWrapper = styled.div`
     color: white;
     font-size: 14px;
     padding: 10px;
-    background-color: red;
   }
 `;
