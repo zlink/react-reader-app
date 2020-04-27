@@ -28,6 +28,6 @@ const Header = (props) => {
   );
 };
 
-const mapStateToProps = (state) => state.Home;
+const mapStateToProps = (state) => state.Ebook;
 
 export default connect(mapStateToProps, null)(Header);

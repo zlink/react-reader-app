@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback, memo } from 'react';
 import { bindActionCreators } from 'redux';
-import * as actions from '../../containers/Home/store/actionCreators';
+import * as actions from '../../containers/Ebook/store/actionCreators';
 import { ReaderWrapper } from './style';
 import Epub from 'epubjs';
 import { connect } from 'react-redux';
@@ -8,12 +8,21 @@ import { connect } from 'react-redux';
 const Reader = (props) => {
   const {
     book,
-    actions: { toggleMenuVisible },
+    settingVisible,
+    actions: { toggleMenuVisible, setSettingVisible },
   } = props;
+
+  console.log(props);
 
   const rendition = useRef();
 
-  const toggle = useCallback(() => toggleMenuVisible(), [toggleMenuVisible]);
+  const toggle = useCallback(() => {
+    toggleMenuVisible();
+    console.log(settingVisible);
+    if (settingVisible > -1) {
+      setSettingVisible(-1);
+    }
+  }, [toggleMenuVisible, settingVisible, setSettingVisible]);
 
   useEffect(() => {
     let render = new Epub(book);
@@ -60,7 +69,7 @@ const Reader = (props) => {
   );
 };
 
-const mapStateToProps = (state) => state.Home;
+const mapStateToProps = (state) => state.Ebook;
 
 const mapDispatchToProps = (dispatch) => {
   return {

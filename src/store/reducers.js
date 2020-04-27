@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import Home from '../containers/Home/store/reducer';
+import Ebook from '../containers/Ebook/store/reducer';
 
-const reducers = combineReducers({ Home });
+const reducers = combineReducers({ Ebook });
 
 export default reducers;

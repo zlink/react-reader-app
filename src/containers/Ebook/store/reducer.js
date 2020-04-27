@@ -1,5 +1,4 @@
 import { SET_FILENAME, MENU_VISIBLE, SETTING_VISIBLE } from './actionTypes';
-import { stat } from 'fs-extra';
 
 const defaultState = {
   menuVisible: false,

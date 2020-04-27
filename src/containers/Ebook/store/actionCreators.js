@@ -10,7 +10,7 @@ export function setFileName(playload) {
 export function toggleMenuVisible() {
   return (dispatch, getState) => {
     const {
-      Home: { menuVisible },
+      Ebook: { menuVisible },
     } = getState();
     dispatch({
       type: MENU_VISIBLE,
@@ -19,14 +19,9 @@ export function toggleMenuVisible() {
   };
 }
 
-export function toggleSettingVisible() {
-  return (dispatch, getState) => {
-    const {
-      Home: { settingVisible },
-    } = getState();
-    dispatch({
-      type: SETTING_VISIBLE,
-      playload: !settingVisible,
-    });
+export function setSettingVisible(playload) {
+  return {
+    type: SETTING_VISIBLE,
+    playload,
   };
 }
