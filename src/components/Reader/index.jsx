@@ -1,17 +1,25 @@
 import React, { useEffect, useRef, useCallback } from 'react';
-import { toggleMenuVisible } from '../../containers/Ebook/store/actionCreators';
+import {
+  toggleMenuVisible,
+  setSettingVisible,
+} from '../../containers/Ebook/store/actionCreators';
 import { ReaderWrapper } from './style';
 import Epub from 'epubjs';
 import { connect } from 'react-redux';
 
 const Reader = (props) => {
-  const { book, dispatch } = props;
+  const { book, dispatch, settingVisible } = props;
+
+  console.log('current settingVisible status::', settingVisible);
 
   const rendition = useRef();
 
   const toggleMenuAndSettingVisible = useCallback(() => {
     dispatch(toggleMenuVisible());
-  }, [dispatch]);
+    if (settingVisible > -1) {
+      settingVisible(-1);
+    }
+  }, [dispatch, settingVisible, setSettingVisible]);
 
   useEffect(() => {
     let render = new Epub(book);
