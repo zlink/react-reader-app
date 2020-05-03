@@ -8,7 +8,7 @@ const Header = (props) => {
 
   return (
     <CSSTransition in={menuVisible} timeout={300} classNames="slide-down">
-      <HeaderWrapper>
+      <HeaderWrapper id="header">
         <div className="left center">
           <span className="icon icon-back" onClick={() => back()} />
         </div>

@@ -11,7 +11,9 @@ export const HeaderWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: translateY(-100%);
+  left: 0;
+  top: 0;
+  transform: translate3d(0, -100%, 0);
   .left {
     flex: 0 0 ${r(40)};
     .icon-back {
