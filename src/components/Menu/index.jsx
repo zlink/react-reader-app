@@ -1,6 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
+import classNames from 'classnames';
 import {
   PageWrapper,
   MenuWrapper,
@@ -23,7 +24,7 @@ const Menu = (props) => {
   return (
     <PageWrapper>
       <CSSTransition in={menuVisible} timeout={300} classNames="slide-up">
-        <MenuWrapper className="slide-up-enter">
+        <MenuWrapper>
           <IconWrapper onClick={() => toggleSettingVisible(1)}>
             <span className="icon icon-menu" />
           </IconWrapper>
