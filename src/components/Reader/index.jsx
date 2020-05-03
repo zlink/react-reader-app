@@ -1,25 +1,18 @@
 import React, { useEffect, useRef, useCallback } from 'react';
-import {
-  toggleMenuVisible,
-  setSettingVisible,
-} from '../../containers/Ebook/store/actionCreators';
+import { toggleMenuVisible } from '../../containers/Ebook/store/actionCreators';
 import { ReaderWrapper } from './style';
 import Epub from 'epubjs';
 import { connect } from 'react-redux';
+import RerenderdNotice from '../RerenderNotice';
 
 const Reader = (props) => {
-  const { book, dispatch, settingVisible } = props;
-
-  console.log('current settingVisible status::', settingVisible);
+  const { book, dispatch } = props;
 
   const rendition = useRef();
 
   const toggleMenuAndSettingVisible = useCallback(() => {
     dispatch(toggleMenuVisible());
-    if (settingVisible > -1) {
-      settingVisible(-1);
-    }
-  }, [dispatch, settingVisible, setSettingVisible]);
+  }, [dispatch]);
 
   useEffect(() => {
     let render = new Epub(book);
@@ -59,6 +52,7 @@ const Reader = (props) => {
 
   return (
     <ReaderWrapper onClick={() => toggleMenuAndSettingVisible()}>
+      <RerenderdNotice condition={toggleMenuAndSettingVisible} />
       <div className="book-wrapper">
         <div id="book" />
       </div>
