@@ -15,16 +15,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.d-flex {
+  display: flex;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .clear-shadow {
   box-shadow: none;
 }
+
 .slide-down-enter,
 .slide-down-exit-done {
-  transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0) !important;
 }
 
 .slide-down-enter-active {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) !important;
   transition: all 0.3s linear;
 }
 
@@ -32,25 +44,25 @@ code {
 .slide-down-exit,
 .slide-up-enter-done,
 .slide-up-exit {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) !important;
 }
 
 .slide-down-exit-active {
-  transform: translate3d(0, -100%, 0);
+  transform: translate3d(0, -100%, 0) !important;
   transition: all 0.3s linear;
 }
 
 .slide-up-enter,
 .slide-up-exit-done {
-  transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 0, 0 !important);
 }
 
 .slide-up-enter-active {
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0) !important;
   transition: all 0.3s linear;
 }
 
 .slide-up-exit-active {
-  transform: translate3d(0, 100%, 0);
+  transform: translate3d(0, 100%, 0) !important;
   transition: all 0.3s linear;
 }

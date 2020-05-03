@@ -8,18 +8,18 @@ const Header = (props) => {
 
   return (
     <CSSTransition in={menuVisible} timeout={300} classNames="slide-down">
-      <HeaderWrapper className="slide-down-enter">
-        <div className="left">
+      <HeaderWrapper>
+        <div className="left center">
           <span className="icon icon-back" onClick={() => back()} />
         </div>
-        <div className="right">
-          <div className="icon-wrapper">
+        <div className="right center">
+          <div className="icon-wrapper center">
             <span className="icon icon-shelf" />
           </div>
-          <div className="icon-wrapper">
+          <div className="icon-wrapper center">
             <span className="icon icon-person" />
           </div>
-          <div className="icon-wrapper">
+          <div className="icon-wrapper center">
             <span className="icon icon-more" />
           </div>
         </div>

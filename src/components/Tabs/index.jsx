@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { TabsWrapper, TabItem } from './style';
 
 const Tabs = (props) => {
@@ -24,8 +25,10 @@ const Tabs = (props) => {
       </TabItem>
       <TabItem>
         <div className="icon-wrapper">
-          <span className="icon icon-person"></span>
-          发现
+          <Link to="/ebook">
+            <span className="icon icon-person"></span>
+            Ebook
+          </Link>
         </div>
       </TabItem>
     </TabsWrapper>
