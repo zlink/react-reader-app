@@ -1,7 +1,6 @@
 import React, { memo, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
-import classNames from 'classnames';
 import {
   PageWrapper,
   MenuWrapper,

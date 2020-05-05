@@ -6,6 +6,8 @@ export const PageWrapper = styled.div`
 
 export const MenuWrapper = styled.div`
   position: absolute;
+  left: 0;
+  bottom: 0;
   transform: translate3d(0, 100%, 0);
   width: 100vw;
   height: ${r(42)};

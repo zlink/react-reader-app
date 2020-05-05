@@ -1,4 +1,4 @@
-@import '~normalize.css';
+@import './assets//reset.css';
 @import './assets/icons.css';
 
 body {
@@ -54,7 +54,7 @@ code {
 
 .slide-up-enter,
 .slide-up-exit-done {
-  transform: translate3d(0, 0, 0 !important);
+  transform: translate3d(0, 100%, 0) !important;
 }
 
 .slide-up-enter-active {
