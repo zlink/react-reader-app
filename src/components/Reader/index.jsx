@@ -41,6 +41,7 @@ const Reader = (props) => {
       } else {
         toggleMenuAndSettingVisible();
       }
+      // e.preventDefault();
       e.stopPropagation();
     });
 

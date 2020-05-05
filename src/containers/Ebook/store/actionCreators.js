@@ -21,17 +21,17 @@ export function toggleMenuVisible() {
 }
 
 export function setSettingVisible(playload) {
-  return {
-    type: SETTING_VISIBLE,
-    playload,
-  };
-  // return (dispatch, getState) => {
-  //   const {
-  //     Ebook: { settingVisible },
-  //   } = getState();
-  //   dispatch({
-  //     type: SETTING_VISIBLE,
-  //     playload: settingVisible > -1 ? -1 : playload,
-  //   });
+  // return {
+  //   type: SETTING_VISIBLE,
+  //   playload,
   // };
+  return (dispatch, getState) => {
+    const {
+      Ebook: { settingVisible },
+    } = getState();
+    dispatch({
+      type: SETTING_VISIBLE,
+      playload: settingVisible > -1 ? -1 : playload,
+    });
+  };
 }

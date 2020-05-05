@@ -1,4 +1,4 @@
-@import './assets//reset.css';
+@import './assets/reset.css';
 @import './assets/icons.css';
 
 body {
@@ -26,8 +26,8 @@ code {
   align-items: center;
 }
 
-.clear-shadow {
-  box-shadow: none;
+.clear-box-shadow {
+  box-shadow: none !important;
 }
 
 .slide-down-enter,
@@ -35,16 +35,16 @@ code {
   transform: translate3d(0, -100%, 0) !important;
 }
 
-.slide-down-enter-active {
-  transform: translate3d(0, 0, 0) !important;
-  transition: all 0.3s linear;
-}
-
 .slide-down-enter-done,
 .slide-down-exit,
 .slide-up-enter-done,
 .slide-up-exit {
   transform: translate3d(0, 0, 0) !important;
+}
+
+.slide-down-enter-active {
+  transform: translate3d(0, 0, 0) !important;
+  transition: all 0.3s linear;
 }
 
 .slide-down-exit-active {
@@ -58,8 +58,8 @@ code {
 }
 
 .slide-up-enter-active {
-  transition: all 0.3s linear;
   transform: translate3d(0, 0, 0) !important;
+  transition: all 0.3s linear;
 }
 
 .slide-up-exit-active {

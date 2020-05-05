@@ -1,13 +1,8 @@
 import React, { memo, useCallback } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
-import {
-  PageWrapper,
-  MenuWrapper,
-  IconWrapper,
-  SettingWrapper,
-  SettingFontSize,
-} from './style';
+import classNames from 'classnames';
+import { MenuWrapper, IconWrapper, SettingWrapper } from './style';
 import { setSettingVisible } from '../../containers/Ebook/store/actionCreators';
 
 const Menu = (props) => {
@@ -21,9 +16,11 @@ const Menu = (props) => {
   );
 
   return (
-    <PageWrapper>
+    <>
       <CSSTransition in={menuVisible} timeout={300} classNames="slide-up">
-        <MenuWrapper>
+        <MenuWrapper
+          className={classNames({ 'clear-box-shadow': settingVisible === 0 })}
+        >
           <IconWrapper onClick={() => toggleSettingVisible(1)}>
             <span className="icon icon-menu" />
           </IconWrapper>
@@ -43,11 +40,11 @@ const Menu = (props) => {
         timeout={300}
         classNames="slide-up"
       >
-        <SettingWrapper className="slide-up-enter">
-          <SettingFontSize>Font Size Setting</SettingFontSize>
+        <SettingWrapper>
+          <div>Font Size Setting</div>
         </SettingWrapper>
       </CSSTransition>
-    </PageWrapper>
+    </>
   );
 };
 

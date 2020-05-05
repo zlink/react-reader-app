@@ -1,9 +1,10 @@
 import { SET_FILENAME, MENU_VISIBLE, SETTING_VISIBLE } from './actionTypes';
 
 const defaultState = {
-  menuVisible: false,
+  menuVisible: true,
   settingVisible: -1, // -1 不显示, 0 字号设置, 1 主题设置, 2 进度条, 3 目录
   fileName: '',
+  fontSize: 14,
 };
 
 const reducer = (state = defaultState, action) => {
