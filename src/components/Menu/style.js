@@ -28,10 +28,9 @@ export const IconWrapper = styled.div`
 
 export const SettingWrapper = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: ${r(42)};
   left: 0;
-  height: ${r(102)};
-  width: 100vw;
+  width: 100%;
   background-color: #fff;
   box-shadow: 0 ${r(-8)} ${r(8)} rgba(0, 0, 0, 0.15);
   z-index: 100;

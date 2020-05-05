@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import classNames from 'classnames';
 import { MenuWrapper, IconWrapper, SettingWrapper } from './style';
 import { setSettingVisible } from '../../containers/Ebook/store/actionCreators';
+import FontSizeSetting from '../FontSizeSetting';
 
 const Menu = (props) => {
   const { menuVisible, settingVisible, dispatch } = props;
@@ -41,7 +42,7 @@ const Menu = (props) => {
         classNames="slide-up"
       >
         <SettingWrapper>
-          <div>Font Size Setting</div>
+          <FontSizeSetting />
         </SettingWrapper>
       </CSSTransition>
     </>
