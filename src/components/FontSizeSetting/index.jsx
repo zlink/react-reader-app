@@ -9,7 +9,7 @@ const FontSizeList = [12, 14, 16, 18, 20, 22];
 
 const FontSizeSetting = (props) => {
   return (
-    <FontSettingWrapper id="wrapper">
+    <FontSettingWrapper id="font-wrapper">
       <FontSizePreview className="center" fontSize={FontSizeList[0]}>
         A
       </FontSizePreview>

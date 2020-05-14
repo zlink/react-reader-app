@@ -5,7 +5,8 @@ export const FontSettingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${r(60)};
+  height: ${r(102)};
+  padding-bottom: ${r(42)};
 `;
 
 export const FontSelectorWrapper = styled.div`

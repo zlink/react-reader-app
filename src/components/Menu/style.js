@@ -28,7 +28,7 @@ export const IconWrapper = styled.div`
 
 export const SettingWrapper = styled.div`
   position: absolute;
-  bottom: ${r(42)};
+  bottom: 0;
   left: 0;
   width: 100%;
   background-color: #fff;
