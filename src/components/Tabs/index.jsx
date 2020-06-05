@@ -5,7 +5,7 @@ const Tabs = (props) => {
   return (
     <TabsWrapper>
       <TabItem>
-        <div className="icon-wrapper">
+        <div className="icon-wrapper active">
           <span className="icon icon-safari" />
           发现
         </div>
