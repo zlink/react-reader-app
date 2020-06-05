@@ -1,0 +1,3 @@
+export const SET_FILENAME = 'SET_FILENAME';
+export const MENU_VISIBLE = 'MENU_VISIBLE';
+export const SETTING_VISIBLE = 'SETTING_VISIBLE';

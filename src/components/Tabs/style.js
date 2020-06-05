@@ -7,7 +7,7 @@ export const TabsWrapper = styled.div`
   width: 100vw;
   height: ${r(50)};
   background-color: #f0f0f0;
-  border-top: 1px solid #ddd;
+  box-shadow: 0 -5px  5px rgba(0, 0, 0, 0.15);
   background-color: #fff;
   color: #333;
   display: flex;
@@ -26,7 +26,8 @@ export const TabItem = styled.div`
     align-items: center;
     font-size: ${r(12)};
     .icon {
-      margin-bottom: ${r(2)};
+      //margin-bottom: ${r(2)};
+      font-size: ${r(22)};
     }
   }
 `;

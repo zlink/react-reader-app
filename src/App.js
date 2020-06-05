@@ -8,12 +8,14 @@ import store from './store';
 import Home from './containers/Home';
 import Ebook from './containers/Ebook';
 import Me from './containers/Me';
+import Shelf from "./containers/Shelf";
 
 const App = () => (
   <Provider store={store}>
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route path="/shelf" component={Shelf} />
         <Route path="/ebook" component={Ebook} />
         <Route path="/me" component={Me} />
       </Switch>
