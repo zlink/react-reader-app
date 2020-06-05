@@ -5,7 +5,7 @@ export const TabsWrapper = styled.div`
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: ${r(42)};
+  height: ${r(50)};
   background-color: #f0f0f0;
   border-top: 1px solid #ddd;
   background-color: #fff;
