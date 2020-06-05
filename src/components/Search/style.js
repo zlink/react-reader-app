@@ -3,8 +3,8 @@ import {r} from '../../utils/helper';
 
 export const SearchWrapper = styled.div`
   margin: 0 ${r(20)};
+  padding-top: ${r(20)};
   .search {
-    margin-top: ${r(20)};
     height: ${r(40)};
     width: 100%;
     border-radius: ${r(20)};
