@@ -8,7 +8,7 @@ import store from './store';
 import Home from './containers/Home';
 import Ebook from './containers/Ebook';
 import Me from './containers/Me';
-import Shelf from "./containers/Shelf";
+import Shelf from './containers/Shelf';
 
 const App = () => (
   <Provider store={store}>

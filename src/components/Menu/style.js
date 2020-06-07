@@ -10,7 +10,8 @@ export const MenuWrapper = styled.div`
   z-index: 101;
   display: flex;
   background-color: #fff;
-  box-shadow: 0 -0.2162rem 0.2162rem rgba(0, 0, 0, 0.15);
+  box-shadow: ${(props) =>
+    props.shadow ? 'none' : `0 -0.2162rem 0.2162rem rgba(0, 0, 0, 0.15)`};
 `;
 
 export const IconWrapper = styled.div`

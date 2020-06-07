@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchWrapper } from "./style";
+import { SearchWrapper } from './style';
 
 const Search = (props) => {
   const { placeholder, tip } = props;
@@ -9,13 +9,11 @@ const Search = (props) => {
         <div className="search-icon">
           <i className="icon icon-search" />
         </div>
-        <input type="text" placeholder={placeholder}/>
-        <div className="search-text">
-          {tip}
-        </div>
+        <input type="text" placeholder={placeholder} />
+        <span className="search-text">{tip}</span>
       </div>
     </SearchWrapper>
-  )
+  );
 };
 
 export default Search;

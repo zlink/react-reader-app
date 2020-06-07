@@ -5,7 +5,7 @@ export const FontSettingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: ${r(102)};
+  height: ${r(100)};
   padding-bottom: ${r(42)};
 `;
 
@@ -32,7 +32,7 @@ export const FontSelectorWrapper = styled.div`
   }
 `;
 
-export const FontSizePreview = styled.div`
+export const FontSizePreview = styled.span`
   font-size: ${(props) => r(props.fontSize)};
   flex: 0 0 ${r(40)};
   height: 100%;
