@@ -20,7 +20,7 @@
     "dayjs": "^1.8.24",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
-    "epubjs": "^0.3.85",
+    "epubjs": "^0.3.89",
     "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-loader": "3.0.3",
